@@ -1,0 +1,196 @@
+﻿filter,source,target,value
+0,Warner Media Technology Office,Production & Distribution Technology Services,2
+0,Warner Media Technology Office,"News, Sports & Entertainment Digital Platforms",2
+0,Warner Media Technology Office,DTC Engineering & HBO Max,2
+0,Warner Media Technology Office,Advertising Technology,2
+0,Warner Media Technology Office,Technology Strategy & Business Operations,2
+0,Warner Media Technology Office,"Data Science, Platform and Strategy",2
+0,Warner Media Technology Office,"Monetization, Enterprise & Workplace Technology",2
+0,Warner Media Technology Office,Cyber Security Office,2
+0,Warner Media Technology Office,Ad Products and Content Technology,2
+1,Platforms and Innovation,Linear Networks,2
+1,Platforms and Innovation,Sports,2
+1,Platforms and Innovation,News,2
+1,Platforms and Innovation,New WM DTC,2
+1,Platforms and Innovation,Brand Extensions,2
+1,Engineering Program and Capital Management,Enterprise Tech,2
+1,Global Playout Tranmission & Distribution Technology,Linear Networks,2
+1,Global Playout Tranmission & Distribution Technology,Sports,2
+1,Global Playout Tranmission & Distribution Technology,News,2
+1,Global Playout Tranmission & Distribution Technology,New WM DTC,2
+1,Global Playout Tranmission & Distribution Technology,Brand Extensions,2
+1,Production Infrastructure Engineering,Content Production,2
+1,Production Infrastructure Engineering,Themed Entertainment,2
+1,Digital Media Systems,Linear Networks,2
+1,Digital Media Systems,Sports,2
+1,Digital Media Systems,News,2
+1,Digital Media Systems,New WM DTC,2
+1,Digital Media Systems,Brand Extensions,2
+2,Global News Digital,News,2
+2,Global News Digital,New WM DTC,2
+2,Global Sports Digital,Sports,2
+2,Global Sports Digital,New WM DTC,2
+2,Global Sports Digital,Brand Extensions,2
+2,Global Entertainment Digital,New WM DTC,2
+2,Global Entertainment Digital,Brand Extensions,2
+2,Global Fan Engagement,New WM DTC,2
+2,Global Fan Engagement,Brand Extensions,2
+2,Global Digital Operations,New WM DTC,2
+2,Global Digital Operations,Brand Extensions,2
+2,Platform Technology,Sports,2
+2,Platform Technology,News,2
+2,Platform Technology,New WM DTC,2
+2,Platform Technology,Brand Extensions,2
+2,Global Studio/Industry,Content Production,2
+2,Global Studio/Industry,New WM DTC,2
+2,UX/UI Team,New WM DTC,2
+2,UX/UI Team,Brand Extensions,2
+3,Customer Experience Engineering,New WM DTC,2
+3,Platform Engineering,New WM DTC,2
+3,Engineering & Operations,New WM DTC,2
+3,Technical Program Management,New WM DTC,2
+3,International OTT Engineering,New WM DTC,2
+3,Growth & Tech Operations,New WM DTC,2
+3,DTC Ottawa/You.i,New WM DTC,2
+3,Business Operations,New WM DTC,2
+4,Application Development,Linear Networks,2
+4,Application Development,Sports,2
+4,Application Development,News,2
+4,AMS Project Management,Linear Networks,2
+4,AMS Project Management,Sports,2
+4,AMS Project Management,News,2
+4,Media Ad Technology,Linear Networks,2
+4,Media Ad Technology,Sports,2
+4,Media Ad Technology,News,2
+4,Media Ad Technology,New WM DTC,2
+4,Digital Ads Engineering,Linear Networks,2
+4,Digital Ads Engineering,Sports,2
+4,Digital Ads Engineering,News,2
+4,Digital Ads Engineering,New WM DTC,2
+4,Platform & Product Strategy,Linear Networks,2
+4,Platform & Product Strategy,Sports,2
+4,Platform & Product Strategy,News,2
+4,Platform & Product Strategy,New WM DTC,2
+4,Revenue Analytics,Linear Networks,2
+4,Revenue Analytics,Sports,2
+4,Revenue Analytics,News,2
+4,Revenue Analytics,New WM DTC,2
+1,Production Infrastructure Engineering,Linear Networks,2
+1,Production Infrastructure Engineering,Sports,2
+1,Production Infrastructure Engineering,News,2
+1,Production Infrastructure Engineering,New WM DTC,2
+4,Application Development,Content Production,2
+4,Application Development,New WM DTC,2
+4,Application Development,Brand Extensions,2
+4,Application Development,Gaming,2
+4,AMS Project Management,Content Production,2
+4,AMS Project Management,New WM DTC,2
+4,AMS Project Management,Brand Extensions,2
+4,AMS Project Management,Gaming,2
+4,Media Ad Technology,Brand Extensions,2
+4,Media Ad Technology,Gaming,2
+4,Digital Ads Platform,Linear Networks,2
+4,Digital Ads Platform,Sports,2
+4,Digital Ads Platform,News,2
+4,Digital Ads Platform,New WM DTC,2
+4,Digital Ads Platform,Brand Extensions,2
+4,Digital Ads Platform,Gaming,2
+4,Platform & Product Strategy,Consumer Products,2
+4,Platform & Product Strategy,Themed Entertainment,2
+4,Revenue Analytics,Consumer Products,2
+4,Revenue Analytics,Themed Entertainment,2
+5,Office of Strategic Management,Consumer Products,2
+5,Office of Strategic Management,Themed Entertainment,2
+5,Office of Strategic Management,Linear Networks,2
+5,Office of Strategic Management,Sports,2
+5,Office of Strategic Management,News,2
+5,Office of Strategic Management,3rd Party Platforms,2
+5,Office of Strategic Management,New WM DTC,2
+5,Office of Strategic Management,Gaming,2
+5,Office of Strategic Management,Content Production,2
+5,Global Sourcing & Business Operations,Content Production,2
+5,Global Sourcing & Business Operations,New WM DTC,2
+5,Global Sourcing & Business Operations,3rd Party Platforms,2
+5,Global Sourcing & Business Operations,Enterprise Tech,2
+5,Global Sourcing & Business Operations,Themed Entertainment,2
+5,Global Sourcing & Business Operations,Linear Networks,2
+5,Global Sourcing & Business Operations,Consumer Products,2
+6,"Anaytics, Decisions & Data Sciences, ML/AI",Enterprise Tech,2
+6,Enterprise Data Soultions Prod & Prog,Enterprise Tech,2
+6,Global Operations,Enterprise Tech,2
+6,Global Operations,Content Production,2
+6,Enterpirse Data solutions Engineering,Enterprise Tech,2
+7,Monetization & Portfolio Management,Enterprise Tech,2
+7,Tech GRC; Account Admin; Platform Assurance,Enterprise Tech,2
+7,"Studio Operations, CRE, Physical Security",Enterprise Tech,2
+7,"Workplace Tech, Engineering, & Datacenter",Enterprise Tech,2
+7,Global Workplace Services & Support,Enterprise Tech,2
+7,Enterprise Technology,Enterprise Tech,2
+8,Threat Dectection & Response,Enterprise Tech,2
+8,Identity and Access Management,Enterprise Tech,2
+8,CSO Client Engagment,Enterprise Tech,2
+8,Technology Compliance; Account Administration: eDiscovery,Enterprise Tech,2
+8,"Insights, Policy and Finance",Enterprise Tech,2
+8,Security Platorm Engineering,Enterprise Tech,2
+8,Security Architecture & Product Security,Enterprise Tech,2
+9,Content Architecture and Engineering,Enterprise Tech,2
+9,Technology Solutions,Enterprise Tech,2
+9,Media Software Engineering,Consumer Products,2
+9,Media Software Engineering,Enterprise Tech,2
+9,Ad Product and Revenue Strategy,Consumer Products,2
+9,Ad Product and Revenue Strategy,Enterprise Tech,2
+9,Audience Product and Business Development,Consumer Products,2
+9,Audience Product and Business Development,Enterprise Tech,2
+1,Production & Distribution Technology Services,Platforms and Innovation,2
+1,Production & Distribution Technology Services,Engineering Program and Capital Management,2
+1,Production & Distribution Technology Services,Global Playout Tranmission & Distribution Technology,2
+1,Production & Distribution Technology Services,Production Infrastructure Engineering,2
+1,Production & Distribution Technology Services,Digital Media Systems,2
+2,"News, Sports & Entertainment Digital Platforms",Global News Digital,2
+2,"News, Sports & Entertainment Digital Platforms",Global Sports Digital,2
+2,"News, Sports & Entertainment Digital Platforms",Global Entertainment Digital,2
+2,"News, Sports & Entertainment Digital Platforms",Global Fan Engagement,2
+2,"News, Sports & Entertainment Digital Platforms",Global Digital Operations,2
+2,"News, Sports & Entertainment Digital Platforms",Platform Technology,2
+2,"News, Sports & Entertainment Digital Platforms",Global Studio/Industry,2
+2,"News, Sports & Entertainment Digital Platforms",UX/UI Team,2
+3,DTC Engineering & HBO Max,Customer Experience Engineering,2
+3,DTC Engineering & HBO Max,Platform Engineering,2
+3,DTC Engineering & HBO Max,Engineering & Operations,2
+3,DTC Engineering & HBO Max,Technical Program Management,2
+3,DTC Engineering & HBO Max,International OTT Engineering,2
+3,DTC Engineering & HBO Max,Growth & Tech Operations,2
+3,DTC Engineering & HBO Max,DTC Ottawa/You.i,2
+3,DTC Engineering & HBO Max,Business Operations,2
+4,Advertising Technology,Application Development,2
+4,Advertising Technology,AMS Project Management,2
+4,Advertising Technology,Media Ad Technology,2
+4,Advertising Technology,Digital Ads Engineering,2
+4,Advertising Technology,Platform & Product Strategy,2
+4,Advertising Technology,Revenue Analytics,2
+4,Advertising Technology,Digital Ads Platform,2
+5,Technology Strategy & Business Operations,Office of Strategic Management,2
+5,Technology Strategy & Business Operations,Global Sourcing & Business Operations,2
+6,"Data Science, Platform and Strategy","Anaytics, Decisions & Data Sciences, ML/AI",2
+6,"Data Science, Platform and Strategy",Enterprise Data Soultions Prod & Prog,2
+6,"Data Science, Platform and Strategy",Global Operations,2
+6,"Data Science, Platform and Strategy",Enterpirse Data solutions Engineering,2
+7,"Monetization, Enterprise & Workplace Technology",Monetization & Portfolio Management,2
+7,"Monetization, Enterprise & Workplace Technology",Tech GRC; Account Admin; Platform Assurance,2
+7,"Monetization, Enterprise & Workplace Technology","Studio Operations, CRE, Physical Security",2
+7,"Monetization, Enterprise & Workplace Technology","Workplace Tech, Engineering, & Datacenter",2
+7,"Monetization, Enterprise & Workplace Technology",Global Workplace Services & Support,2
+7,"Monetization, Enterprise & Workplace Technology",Enterprise Technology,2
+8,Cyber Security Office,Threat Dectection & Response,2
+8,Cyber Security Office,Identity and Access Management,2
+8,Cyber Security Office,CSO Client Engagment,2
+8,Cyber Security Office,Technology Compliance; Account Administration: eDiscovery,2
+8,Cyber Security Office,"Insights, Policy and Finance",2
+8,Cyber Security Office,Security Platorm Engineering,2
+8,Cyber Security Office,Security Architecture & Product Security,2
+9,Ad Products and Content Technology,Content Architecture and Engineering,2
+9,Ad Products and Content Technology,Technology Solutions,2
+9,Ad Products and Content Technology,Global Operations,2
+9,Ad Products and Content Technology,Media Software Engineering,2
+9,Ad Products and Content Technology,Ad Product and Revenue Strategy,2
+9,Ad Products and Content Technology,Audience Product and Business Development,2
