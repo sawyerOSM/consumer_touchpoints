@@ -5,7 +5,7 @@
 <style>
 
 body {
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .node rect {
@@ -46,8 +46,8 @@ var units = "Widgets";
 
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 1300 - margin.left - margin.right,
-    height = 900 - margin.top - margin.bottom;
+    width = 750 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 
 // format variables
 var formatNumber = d3.format(",.0f"),    // zero decimal places
@@ -70,11 +70,67 @@ var sankey = d3.sankey()
 
 var path = sankey.link();
 
+
+
+
+
+
+
+
+
+        const chartWidth = width - margin.left - margin.right;
+        const chartHeight = height - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    var svg2 = d3.select("body").append("svg")
+        .attr("width", width + 10 + 10)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform",
+              "translate(" + 35 + "," + 10 + ")");
+
+      let annotations = svg2.append("g").attr("id","annotations");
+      let chartArea = svg2.append("g").attr("id","points")
+                      .attr("transform",`translate(${margin.left},${margin.top})`);
+
+      // The x axis is going to be changing because genres change - we need to store and adjust it
+      // We leave xAxis as a blank axis for now, but keep the reference outside of the function so we can rewrite it
+     // let leftAxis = d3.axisLeft()
+     // let leftAxisG = annotations.append("g")
+        //                       .attr("class", "y axis")
+        //                       .attr("transform",`translate(${margin.left-10},${margin.top})`)
+                               // Don't use .call() for a blank axis
+
+
+       // We can just do the whole percent scale outside of the function since that never changes
+       let leftAxis = d3.axisLeft()
+       let leftAxisG = annotations.append("g")
+                             .attr("class", "y axis")
+                             .attr("transform",`translate(${margin.left-10},${margin.top})`)
+
+
+
+                // X axis
+        let bottomAxis = d3.axisBottom()
+        let bottomAxisG = annotations.append("g")
+                              .attr("class", "x axis")
+                              .attr("transform",`translate(${margin.left},${chartHeight+margin.top})`)
+                              // Don't use .call() for a blank axis
+
+
+
+
+
+
+
+
+
 // load the data
 d3.csv("sankey.csv", function(error, data) {
 
 
-    function updateBarsAnimated(yearKey, data) {
+
+    function updateSankey(yearKey) {
         svg.selectAll("*").remove();
         let newdata = data.filter(row => row.filter === yearKey.toString());
         console.log(newdata);
@@ -86,12 +142,15 @@ d3.csv("sankey.csv", function(error, data) {
         //set up graph in same style as original example but empty
         graph = {"nodes" : [], "links" : []};
 
+        const valueExtent = d3.extent(data, d => d['value']);
+        const valueScale = d3.scaleLinear().domain(valueExtent).range([1, valueExtent[1]/3]);
+
         newdata.forEach(function (d) {
          graph.nodes.push({ "name": d.source });
          graph.nodes.push({ "name": d.target });
          graph.links.push({ "source": d.source,
                             "target": d.target,
-                            "value": +d.value });
+                            "value": +valueScale(Math.round(d.value))});
         });
 
         // return only the distinct / unique nodes
@@ -111,10 +170,14 @@ d3.csv("sankey.csv", function(error, data) {
          graph.nodes[i] = { "name": d };
         });
 
+        console.log("Line 118");
+
         sankey
            .nodes(graph.nodes)
            .links(graph.links)
            .layout(32);
+           console.log("Line 124");
+
 
         // add in the links
         var link = svg.append("g").selectAll(".link")
@@ -157,6 +220,7 @@ d3.csv("sankey.csv", function(error, data) {
             return d3.rgb(d.color).darker(2); })
          .append("title")
            .text(function(d) {
+
             return d.name + "\n" + format(d.value); });
 
         // add in the title for the nodes
@@ -187,6 +251,118 @@ d3.csv("sankey.csv", function(error, data) {
 
 
 
+
+
+
+
+
+           function updateBarsAnimated(verticalKey) {
+             let newdata = data.filter(row => row.filter === verticalKey.toString());
+
+
+
+          let points = ['Cable Box', 'Connected TV', 'Desktop', 'Mobile', 'Person'];
+
+         let data_points = newdata.map(function(d) { return d.target; });
+
+         let final_points=[]
+         let final_sums = [];
+         for (point in data_points){
+             if (points.includes(data_points[point])){
+                 if (!final_points.includes(data_points[point])){
+                     final_points.push(data_points[point]);
+                     let filtered_newdata = newdata.filter(row => row.target === data_points[point]);
+                     let sum=0
+                     for (row of filtered_newdata){
+                         sum+=parseFloat(row.value);
+                     }
+                     final_sums.push(Math.round(sum));
+                 }
+             }
+         }
+         console.log(final_sums);
+
+
+
+         const xScale = d3.scaleBand().domain(final_points).range([0, chartWidth])
+                                          .padding(0.05);
+
+
+
+         bottomAxis.scale(xScale)
+         bottomAxisG.transition().call(bottomAxis);
+         console.log(final_sums)
+         console.log(Math.max(...final_sums))
+         const yScale = d3.scaleLinear().domain([0,Math.max(...final_sums)]).range([chartHeight,0]);
+
+
+
+         leftAxis.scale(yScale)
+         leftAxisG.transition().call(leftAxis);
+
+
+         let final_data = [];
+
+         for (point in final_points){
+             final_data.push({"point": final_points[point], "sum": final_sums[point] });
+         }
+
+         chartArea.selectAll('rect.bar').data( final_data, d=>d.point )
+         .join( enter => enter.append('rect')
+                              .attr('class','bar')
+                              .attr("fill", "steelblue")
+                              .attr("x", d => xScale(d.point))
+                              .attr("y", d => yScale(d.sum))
+                              .attr("height", d => yScale(0) - yScale(d.sum))
+                              .attr("width", xScale.bandwidth())
+                              .attr("opacity", 0) // Set opacity low, then animate to 1 to make them fade in
+                              .call( enter => enter.transition().attr('opacity',1) ),
+                update => update.call( update => update.transition()  // Animate resizing and movement
+                                                       .attr("fill", "steelblue")
+                                                       .attr("x", d => xScale(d.point))
+                                                       .attr("y", d => yScale(d.sum))
+                                                       .attr("height", d => yScale(0) - yScale(d.sum))
+                                                       .attr("width", xScale.bandwidth()) ),
+                exit => exit.call( exit => exit.transition().attr('opacity',0).remove() ) ); // Animate opacity to fade out
+
+
+
+
+
+
+
+
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const allKeys = [0,1,2,3,4,5,6,7,8,9];
 let titles = {0: 'Verticals',
        1: 'Production & Distribution Technology Services',
@@ -207,14 +383,36 @@ let titles = {0: 'Verticals',
       .style("margin-right","2px")
       .on("click", function() {
         // When it's clicked, call updateBars to update the chart
-        updateBarsAnimated( d , data);
+        updateSankey( d );
+        updateBarsAnimated( d );
         console.log("CLICKED "+d);
     });
   });
-updateBarsAnimated('0', data);
+
+
+updateSankey('0');
+updateBarsAnimated( '0' );
   });
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="button-bar"></div>
 </body>
 </html>
