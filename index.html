@@ -32,7 +32,7 @@ body {
 </style>
 <body>
 
-<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="sankey.js"></script>
 
 
@@ -47,7 +47,7 @@ var units = "Widgets";
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
     width = 750 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+    height = 750 - margin.top - margin.bottom;
 
 // format variables
 var formatNumber = d3.format(",.0f"),    // zero decimal places
@@ -79,7 +79,7 @@ var path = sankey.link();
 
 
         const chartWidth = width - margin.left - margin.right;
-        const chartHeight = height - margin.top - margin.bottom;
+        const chartHeight = height - margin.top - margin.bottom-45;
 
     // append the svg object to the body of the page
     var svg2 = d3.select("body").append("svg")
@@ -88,6 +88,20 @@ var path = sankey.link();
       .append("g")
         .attr("transform",
               "translate(" + 35 + "," + 10 + ")");
+
+    svg2.append("text")      // text label for the x axis
+      .attr("x", 350 )
+      .attr("y",  height - margin.top - margin.bottom)
+      .style("text-anchor", "middle")
+      .text("Fan Touchpoints");
+
+    svg2.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", (0 - margin.left-15))
+      .attr("x", (0 - (height / 2)))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Headcount");
 
       let annotations = svg2.append("g").attr("id","annotations");
       let chartArea = svg2.append("g").attr("id","points")
@@ -106,7 +120,7 @@ var path = sankey.link();
        let leftAxis = d3.axisLeft()
        let leftAxisG = annotations.append("g")
                              .attr("class", "y axis")
-                             .attr("transform",`translate(${margin.left-10},${margin.top})`)
+                             .attr("transform",`translate(${margin.left+20},${margin.top})`)
 
 
 
@@ -114,7 +128,7 @@ var path = sankey.link();
         let bottomAxis = d3.axisBottom()
         let bottomAxisG = annotations.append("g")
                               .attr("class", "x axis")
-                              .attr("transform",`translate(${margin.left},${chartHeight+margin.top})`)
+                              .attr("transform",`translate(${margin.left+20},${chartHeight+margin.top})`)
                               // Don't use .call() for a blank axis
 
 
@@ -126,8 +140,7 @@ var path = sankey.link();
 
 
 // load the data
-d3.csv("sankey.csv", function(error, data) {
-
+d3.csv('sankey.csv').then( (data) => {
 
 
     function updateSankey(yearKey) {
@@ -291,9 +304,8 @@ d3.csv("sankey.csv", function(error, data) {
 
          bottomAxis.scale(xScale)
          bottomAxisG.transition().call(bottomAxis);
-         console.log(final_sums)
-         console.log(Math.max(...final_sums))
-         const yScale = d3.scaleLinear().domain([0,Math.max(...final_sums)]).range([chartHeight,0]);
+
+         const yScale = d3.scaleLinear().domain([0,Math.max(...final_sums)*1.5]).range([chartHeight,0]);
 
 
 
@@ -311,7 +323,7 @@ d3.csv("sankey.csv", function(error, data) {
          .join( enter => enter.append('rect')
                               .attr('class','bar')
                               .attr("fill", "steelblue")
-                              .attr("x", d => xScale(d.point))
+                              .attr("x", d => xScale(d.point)+20)
                               .attr("y", d => yScale(d.sum))
                               .attr("height", d => yScale(0) - yScale(d.sum))
                               .attr("width", xScale.bandwidth())
@@ -319,7 +331,7 @@ d3.csv("sankey.csv", function(error, data) {
                               .call( enter => enter.transition().attr('opacity',1) ),
                 update => update.call( update => update.transition()  // Animate resizing and movement
                                                        .attr("fill", "steelblue")
-                                                       .attr("x", d => xScale(d.point))
+                                                       .attr("x", d => xScale(d.point)+20)
                                                        .attr("y", d => yScale(d.sum))
                                                        .attr("height", d => yScale(0) - yScale(d.sum))
                                                        .attr("width", xScale.bandwidth()) ),
